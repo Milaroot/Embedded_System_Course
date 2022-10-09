@@ -58,7 +58,7 @@ void loop(){
   
     if(flag == 0){
         curr_row++;
-  	    if(curr_row == 4){
+        if(curr_row == 4){
             reset();
             Buzz(0);
             delay(2000);
