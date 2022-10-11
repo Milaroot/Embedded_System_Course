@@ -38,7 +38,7 @@ void setup(){
 }
 
 void loop(){
-    if(point == 2){
+    if(point == 20){
         digitalWrite(13, HIGH);
         exit(0);
     }
