@@ -33,15 +33,15 @@ void setup(){
     for(int i = 10; i <= 12; i++){ //let butten pinmode = INPUT
         pinMode(i, INPUT);
     }
-  	pinMode(13, OUTPUT);         //let white led pinmode = output
+    pinMode(13, OUTPUT);         //let white led pinmode = output
     pinMode(0, OUTPUT); //buzzer
 }
 
 void loop(){
-  	if(point == 2){
-    	digitalWrite(13, HIGH);
-      	exit(0);
-  	}
+    if(point == 2){
+        digitalWrite(13, HIGH);
+        exit(0);
+    }
     int tmp = curr_col * 3 + curr_row;
     digitalWrite(tmp, HIGH);
 
