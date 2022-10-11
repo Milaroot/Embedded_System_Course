@@ -2,6 +2,8 @@
 //
 int curr_col; //current col
 int curr_row; //current row
+int point = 0;
+
 
 int CheckTarget(int tmp){
     int target;
@@ -31,11 +33,15 @@ void setup(){
     for(int i = 10; i <= 12; i++){ //let butten pinmode = INPUT
         pinMode(i, INPUT);
     }
-  
+  	pinMode(13, OUTPUT);         //let white led pinmode = output
     pinMode(0, OUTPUT); //buzzer
 }
 
 void loop(){
+  	if(point == 2){
+    	digitalWrite(13, HIGH);
+      	exit(0);
+  	}
     int tmp = curr_col * 3 + curr_row;
     digitalWrite(tmp, HIGH);
 
@@ -49,6 +55,7 @@ void loop(){
             Buzz(1000);
             flag = 1;
             delay(500);
+          	point++;
             break;
         }
         delay(1);
