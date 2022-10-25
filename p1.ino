@@ -31,7 +31,7 @@ void setup(){
         pinMode(i, OUTPUT);
     }
     for(int i = 10; i <= 12; i++){ //let butten pinmode = INPUT
-        pinMode(i, INPUT);
+        pinMode(i, INPUT_PULLUP);
     }
     pinMode(13, OUTPUT);         //let white led pinmode = output
     pinMode(0, OUTPUT); //buzzer
@@ -50,7 +50,7 @@ void loop(){
 
     int flag = 0;
     for(int i = 0; i < 700; i++){
-        if(digitalRead(target) == HIGH && curr_row == 3){
+        if(digitalRead(target) == LOW && curr_row == 3){
             reset();
             Buzz(1000);
             flag = 1;
