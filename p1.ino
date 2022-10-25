@@ -42,19 +42,19 @@ void setup(){
 }
 
 void loop(){
-  	char s1[20];
-  
-  	lcd.setCursor(2, 0); 
-  	sprintf(s1, "point: %d", point);
-  	lcd.print(s1);
-  	lcd.setCursor(0, 1); 
-  	if(point == 20){
+    char s1[20];
+
+    lcd.setCursor(2, 0); 
+    sprintf(s1, "point: %d", point);
+    lcd.print(s1);
+    lcd.setCursor(0, 1); 
+    if(point == 20){
         digitalWrite(13, HIGH);
         lcd.print("!!YOU WIN !!");
-      	exit(0);
+        exit(0);
     }	
-  	else{
-    	lcd.print("target: 20");
+    else{
+        lcd.print("target: 20");
     }
     
     int tmp = curr_col * 3 + curr_row;
