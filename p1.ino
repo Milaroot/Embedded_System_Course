@@ -41,7 +41,7 @@ void setup(){
     pinMode(0, OUTPUT); //buzzer
 
     lcd.init();
-    lcd.blacklight();
+    lcd.backlight();
 }
 
 void loop(){
