@@ -39,6 +39,9 @@ void setup(){
     }
     pinMode(13, OUTPUT);         //let white led pinmode = output
     pinMode(0, OUTPUT); //buzzer
+
+    lcd.init();
+    lcd.blacklight();
 }
 
 void loop(){
