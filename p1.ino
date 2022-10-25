@@ -47,7 +47,7 @@ void setup(){
 void loop(){
     char s1[20];
 
-    lcd.setCursor(2, 0); 
+    lcd.setCursor(0, 0); 
     sprintf(s1, "point: %d", point);
     lcd.print(s1);
     lcd.setCursor(0, 1); 
