@@ -7,7 +7,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 int curr_col; //current col
 int curr_row; //current row
 int point = 0;
-
+int speed_time;
 
 int CheckTarget(int tmp){
     int target;
@@ -18,6 +18,7 @@ int CheckTarget(int tmp){
 }
 
 void reset(){
+    speed_time = random(2, 8) * 100;
     curr_col = random(0, 3);
     curr_row = 1;
 }
@@ -30,7 +31,7 @@ void Buzz(int val){
 
 void setup(){
     reset();         
-  
+  	
     for(int i = 1; i <= 9; i++){ //let led pinmode = output
         pinMode(i, OUTPUT);
     }
@@ -67,7 +68,7 @@ void loop(){
     target = CheckTarget(tmp); 
 
     int flag = 0;
-    for(int i = 0; i < 700; i++){
+    for(int i = 0; i < speed_time; i++){
         if(digitalRead(target) == LOW && curr_row == 3){
             reset();
             Buzz(1000);
