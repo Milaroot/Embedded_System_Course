@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🥇競速榜</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Refresh" content="30;url=http://127.0.0.1:5000">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-image: url('https://images.pexels.com/photos/11285597/pexels-photo-11285597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-size: cover; ">
+    <div class="text-white text-center container border border-secondary border-3 rounded-top ">
+        <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+            <a href="/" style="font-size: 25px" class="m-4 link-success">簡單模式</a>
+            <a href="/HardMode" style="font-size: 25px" class="m-4 link-danger">困難模式</a>
+        </div>
+        <div class="row ">
+            <div class="col-12 column p-5 ui-sortable bg-dark text-white text-center ">
+                <p style="font-size: 50px">簡單模式</p>
+                <p>前三名</p>
+                <canvas id="myChart" width="100" height="50"></canvas>
+            </div>
+            <div class="col-12 column ui-sortable bg-dark text-white text-center ">
+                <canvas id="myChart" width="25" height="50"></canvas>
+                <marquee height="100 " direction="left " scrollamount="20 " bgcolor="indigo ">
+                    <p style="font-size: 50px; ">快還要更快</p>
+                </marquee>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 50px">排行榜</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">🥇1.&nbsp&nbsp&nbsp{{dic.n1n}}&nbsp&nbsp&nbsp{{dic.n1}}秒</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">🥈2.&nbsp&nbsp&nbsp{{dic.n2n}}&nbsp&nbsp&nbsp{{dic.n2}}秒</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">🥉3.&nbsp&nbsp&nbsp{{dic.n3n}}&nbsp&nbsp&nbsp{{dic.n3}}秒</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">4.&nbsp&nbsp&nbsp{{dic.n4n}}&nbsp&nbsp&nbsp{{dic.n4}}秒</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">5.&nbsp&nbsp&nbsp{{dic.n5n}}&nbsp&nbsp&nbsp{{dic.n5}}秒</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">6.&nbsp&nbsp&nbsp{{dic.n6n}}&nbsp&nbsp&nbsp{{dic.n6}}秒</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">7.&nbsp&nbsp&nbsp{{dic.n7n}}&nbsp&nbsp&nbsp{{dic.n7}}秒</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">8.&nbsp&nbsp&nbsp{{dic.n8n}}&nbsp&nbsp&nbsp{{dic.n8}}秒</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">9.&nbsp&nbsp&nbsp{{dic.n9n}}&nbsp&nbsp&nbsp{{dic.n9}}秒</p>
+    </div>
+
+    <div class="container text-center text-white bg-dark p-4 border border-secondary border-3 rounded-top">
+        <p style="font-size: 20px">10.&nbsp&nbsp&nbsp{{dic.n10n}}&nbsp&nbsp&nbsp{{dic.n10}}秒</p>
+    </div>
+
+
+    <script>
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['🥇冠軍:{{dic.n1n}}', '🥈亞軍:{{dic.n2n}}', '🥉季軍:{{dic.n3n}}'],
+                datasets: [{
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1,
+                label: '秒數',
+                data: [{{dic.n1}}, {{dic.n2}}, {{dic.n3}}]
+                }]
+            }
+        });
+    </script>
+</body>
+
+</html>
