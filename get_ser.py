@@ -19,6 +19,7 @@ try:
                 game_mode = ser.readline()  
                 game_mode = game_mode.decode()
                 curr_score = time.time() - start_time
+                print("-" * 25)
                 name = input('請輸入你的名字(長度小於10): ')
                 
                 
@@ -26,6 +27,8 @@ try:
                     print("給我重打不要亂塞符號")
                     name = input('請輸入你的名字: ')
                     
+                print(f"你花的秒數 {curr_score}秒")
+                print("-" * 25)
                 get_num = f"Name: {name}, Score: !{curr_score:.3f}"
                 
                 
@@ -65,8 +68,8 @@ try:
                     with open("res_hard", "w", encoding='utf-8') as f:
                         for elem in place:
                             f.write(elem + "\n")
-                
-                    
+                ser.close()
+                ser = serial.Serial(COM_PORT, BAUD_RATES)   
 
 except KeyboardInterrupt:
     ser.close()    
